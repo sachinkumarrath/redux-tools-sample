@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createSelector } from 'reselect';
 import { incrementTwo } from '../features/app/appSlice';
-import { removeFromComponentList } from '../features/pull-refresh/pullRefreshSlice';
+import { fetchMockData } from '../features/pull-refresh/pullRefreshSlice';
 import { setUserName } from '../features/auth/authSlice';
 
 const fetchDataForComponent = createSelector(
@@ -30,9 +30,7 @@ const ComponentTwo = () => {
   
   useEffect(() => {
     if (isPullRefresh) {
-      setTimeout(() => {
-        dispatch(removeFromComponentList('COMP2'));
-      }, 2000);
+      dispatch(fetchMockData({ timeout: 2000, componentId: 'COMP2' }));
     }
     
   }, [isPullRefresh]);

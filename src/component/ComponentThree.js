@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch} from 'react-redux';
 import { createSelector } from 'reselect';
 import { incrementThree } from '../features/app/appSlice';
-import { removeFromComponentList, fetchMockData } from '../features/pull-refresh/pullRefreshSlice';
+import { fetchMockData } from '../features/pull-refresh/pullRefreshSlice';
 
 const fetchDataForComponent = createSelector(
   state => state.app.counter.counter3,
